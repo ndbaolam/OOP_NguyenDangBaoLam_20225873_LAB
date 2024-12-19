@@ -1,0 +1,9 @@
+*.class
+Makefile
+**/.vscode
+**/README.md
+/Homework
+/.metadata/
+AimsProject/bin/lib/libjfxwebkit.so
+AimsProject/bin/lib/*.so
+AimsProject/bin/*

@@ -1,0 +1,10 @@
+
+Q1 (Part 9): Both Cart and Store are the aggregate of Media, while CompactDisc is the aggregate of Track.
+Q2 (Part 10): If the object passed in the method is not an instance of Media, the equals() method returns false.
+Q3 (Part 11): The polymorphism sample code program will run normally, each object (CD, DVD, BOOK) will be printed by it's toString() method in their separate objects.
+The reasion is that because Book, CompactDisc and DigitalVideoDisc inherit Media, so objects book, cd, dvd are also instances of Media. 
+
+Q4 (Part 12): The Media Class should implements Comparable interface.
+Q5 (Part 12): The compareTo() method needs to return a negative integer, zero, or a positive integer if the current object is respectively "smaller", equal to, or "greater" than the specified object.
+Q6 (Part 12). No since Comparable interface is used for internal comparison and can be implemented only once by class Media.
+Q7 (Part 12). I would modify my code to perform that required task by overriding compareTo() method in DigitalVideoDisc class.
