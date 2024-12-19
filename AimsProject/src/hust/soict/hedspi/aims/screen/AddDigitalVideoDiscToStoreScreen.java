@@ -4,9 +4,8 @@ import java.awt.FlowLayout;
 
 import javax.swing.JPanel;
 
-import hust.soict.hedspi.aims.media.DigitalVideoDisc;
-import hust.soict.hedspi.aims.media.Media;
-import hust.soict.hedspi.aims.store.Store;
+import hust.soict.hedspi.aims.media.*;
+import hust.soict.hedspi.aims.store.*;
 
 public class AddDigitalVideoDiscToStoreScreen extends AddItemToStoreScreen {
 

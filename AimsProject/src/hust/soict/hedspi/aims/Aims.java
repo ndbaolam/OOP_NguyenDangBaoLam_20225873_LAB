@@ -4,11 +4,12 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 import hust.soict.hedspi.aims.cart.*;
+import hust.soict.hedspi.aims.exception.PlayerException;
 import hust.soict.hedspi.aims.media.*;
 import hust.soict.hedspi.aims.store.*;
 
 public class Aims {
-    private static Cart cart = new Cart();
+		private static Cart cart = new Cart();
 	private static Store store = new Store();
 	private static Scanner scanner = new Scanner(System.in);
 	private static Runnable lastRunnable;
@@ -42,7 +43,14 @@ public class Aims {
 
 		Runnable[] choices = new Runnable[] {
 				() -> System.exit(0),
-				Aims::storeMenu,
+				() -> {
+					try {
+						storeMenu();
+					} catch (PlayerException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
+				},
 				Aims::updateStore,
 				Aims::cartMenu
 		};
@@ -153,7 +161,7 @@ public class Aims {
 		updateStore();
 	}
 
-	public static void storeMenu() {
+	public static void storeMenu() throws PlayerException {
 		store.printStore();
 
 		System.out.println("Store Menu: ");
@@ -169,7 +177,14 @@ public class Aims {
 		int command = makeChoice(5);
 
 		if (command == 4) {
-			lastRunnable = Aims::storeMenu;
+			lastRunnable = () -> {
+				try {
+					storeMenu();
+				} catch (PlayerException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+			};
 			cartMenu();
 		} else if (command == 0)
 			showMenu();
@@ -220,16 +235,26 @@ public class Aims {
 				cart.addMedia(media);
 			else if (command == 2) {
 				if (media instanceof Playable)
-					((Playable) media).play();
+					try {
+						((Playable) media).play();
+					} catch (PlayerException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
 				else
 					System.out.println("Can't play this media");
 			} else
-				storeMenu();
+				try {
+					storeMenu();
+				} catch (PlayerException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
 		}
 	}
 
 	public static void cartMenu() {
-		cart.printCart();
+		cart.print();
 
 		System.out.println("Options: ");
 		System.out.println("--------------------------------");
@@ -282,7 +307,12 @@ public class Aims {
 
 			Media chosenMedia = cart.search(title);
 			if (chosenMedia instanceof Playable)
-				((Playable) chosenMedia).play();
+				try {
+					((Playable) chosenMedia).play();
+				} catch (PlayerException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
 			else
 				System.out.println("Can't play this media");
 		} else if (command == 5) {

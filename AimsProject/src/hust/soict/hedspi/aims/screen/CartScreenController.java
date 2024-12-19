@@ -1,13 +1,9 @@
 package hust.soict.hedspi.aims.screen;
-
 import java.awt.Toolkit;
-
 import java.awt.event.WindowEvent;
 import java.util.Optional;
 import java.util.function.Predicate;
-
 import javax.swing.JFrame;
-
 import hust.soict.hedspi.aims.cart.Cart;
 import hust.soict.hedspi.aims.exception.PlayerException;
 import hust.soict.hedspi.aims.media.Media;
@@ -19,11 +15,9 @@ import javafx.collections.ListChangeListener;
 import javafx.collections.transformation.FilteredList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.Node;
 import javafx.scene.control.*;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.cell.PropertyValueFactory;
-import javafx.stage.Stage;
 
 public class CartScreenController {
 
