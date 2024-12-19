@@ -5,5 +5,3 @@ Makefile
 /Homework
 /.metadata/
 AimsProject/bin/lib/libjfxwebkit.so
-AimsProject/bin/lib/*.so
-AimsProject/bin/*
